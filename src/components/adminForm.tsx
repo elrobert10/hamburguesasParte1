@@ -57,8 +57,10 @@ export default function AdminForm () {
   *  }
   */
   return(
-    <form onSubmit={handleSubmit}>
-      <div>
+    <div className="border border-black rounded p-4 bg-red-400">
+      <p className='text-2xl'>Subir Hamburguesa</p> <br />
+      <form onSubmit={handleSubmit} className="bg-red-400" autoComplete="off">
+      <div className="bg-red-400">
         <input 
           className='inpt'
           type='text'
@@ -68,9 +70,9 @@ export default function AdminForm () {
           placeholder='Product Name'
           onChange={handleChange}
           required
-        />
+        /> <br />
         <input
-          className='inpt'
+          className='inpt mt-5'
           type='number'
           name='price'
           step="0.01"
@@ -81,9 +83,11 @@ export default function AdminForm () {
           onChange={handleChange}
           required
         />
+      </div>
+      <div className="flex flex-col items-center">
         <input
           ref={fileRef}
-          className='inpt'
+          className='inpt mt-5'
           type="file"
           name="image"
           accept=".png, .jpg, .jpeg"
@@ -91,12 +95,15 @@ export default function AdminForm () {
           onChange={(e) => setFileUpload(e.target.files)}
           required
         />
-      </div>
-      <div className='flex justify-start ml-3 mt-2'>
-        <button disabled={disabled} type="submit">
+        <button 
+          disabled={disabled} 
+          type="submit"
+          className="bg-gray-400 border border-black text-black px-2.5 mt-5"
+        >
           {disabled ? 'Loading' : 'Submit'}
         </button>
       </div>
-    </form>
+      </form>
+    </div>
   )
 }

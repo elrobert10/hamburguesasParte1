@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 import { 
   getFirestore, 
@@ -91,8 +90,8 @@ export const uploadProduct = async (
 }
 
 export const getProducts = async ():Promise<DocumentData[]> => {
-    const cupRef = await getDocs(collection(db, "hamburguesas"));
-    const productsMap = cupRef.docs.map(doc => doc.data());
+    const hamburguesasRef = await getDocs(collection(db, "hamburguesas"));
+    const productsMap = hamburguesasRef.docs.map(doc => doc.data());
     
     return productsMap;
 }
