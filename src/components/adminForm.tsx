@@ -4,7 +4,8 @@ import { ProductsContext } from "../context/products-context";
 
 const defaultInputs = {
   name: '',
-  price: 0
+  price: 0,
+  qty: 0
 }
 
 export default function AdminForm () {
@@ -82,6 +83,18 @@ export default function AdminForm () {
           placeholder='Price'
           onChange={handleChange}
           required
+        /> <br />
+        <input
+        className="inpt mt-5"
+        type="number"
+        name="qty"
+        step="1"
+        min="0"
+        value={formFields.qty || ''}
+        disabled={disabled}
+        placeholder="Qty"
+        onChange={handleChange}
+        required
         />
       </div>
       <div className="flex flex-col items-center">
@@ -101,7 +114,11 @@ export default function AdminForm () {
           className="bg-gray-400 border border-black text-black px-2.5 mt-5"
         >
           {disabled ? 'Loading' : 'Submit'}
-        </button>
+        </button> <br />
+        <button 
+        onClick={() => window.location.reload()}
+        className="bg-gray-400 border border-black text-black px-2.5 mt-5"
+        >Recargar Pagina</button>
       </div>
       </form>
     </div>

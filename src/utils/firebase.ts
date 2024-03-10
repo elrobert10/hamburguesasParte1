@@ -6,7 +6,9 @@ import {
   serverTimestamp, 
   getDocs, 
   updateDoc, 
-  DocumentData
+  DocumentData,
+  doc,
+  deleteDoc
 } from "firebase/firestore";
 import { 
   getDownloadURL, 
@@ -94,4 +96,28 @@ export const getProducts = async ():Promise<DocumentData[]> => {
     const productsMap = hamburguesasRef.docs.map(doc => doc.data());
     
     return productsMap;
+}
+
+export const updateProduct = async (id: string, productName: string, price: number, qty: number) => {
+  try {
+    const productRef = doc(db, "hamburguesas", id);
+    await updateDoc(productRef, {
+      productName : productName,
+      price: price,
+      qty: qty
+    });
+    getProducts();
+  } catch (error) {
+    console.log(error);
+  }
+  
+}
+
+export const deleteProduct = async (id: string) => {
+  try {
+    const productRef = doc(db, "hamburguesas", id);
+    await deleteDoc(productRef);
+  } catch (error) {
+    console.log(error);
+  }
 }

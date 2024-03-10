@@ -6,6 +6,7 @@ import {
 } from "react";
 import { DocumentData } from "firebase/firestore";
 import { getProducts } from "../utils/firebase";
+
 type Props = {
   children?: ReactNode
 }
