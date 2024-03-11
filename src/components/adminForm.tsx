@@ -118,7 +118,7 @@ export default function AdminForm () {
         <button 
         onClick={() => window.location.reload()}
         className="bg-gray-400 border border-black text-black px-2.5 mt-5"
-        >Recargar Pagina</button>
+        >Recargar Menú</button>
       </div>
       </form>
     </div>
