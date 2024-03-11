@@ -23,18 +23,18 @@ export default function ProductCardInfo ({product}:DocumentData) {
   };
 
   return(
-    <div className="bg-zinc-600" key={id}>
-      <img src={image} alt={`${productName} image`} />
-      <h2 className="text-lg font-semibold mt-1">{productName}</h2>
+    <div className="bg-zinc-600" style={{color: '#ffffff'}} key={id}>
+      <img src={image} width="200" alt={`${productName} image`} />
+      <h2 className="text-lg font-semibold mt-1" style={{color: '#ffffff'}}>{productName}</h2>
       <div className="my-2">
         <p>${price}</p>
         <p>Qty: {qty}</p>
         {isEditing ? (
           <form onSubmit={handleUpdate}>
             <input value={newProductName} onChange={e => setNewProductName(e.target.value)} />
-            <input value={newPrice} onChange={e => setNewPrice(e.target.value)} />
-            <input value={newQty} onChange={e => setNewQty(e.target.value)} />
-            <button type="submit">Guardar</button>
+            <input type='number' min='1' value={newPrice} onChange={e => setNewPrice(e.target.value)} />
+            <input type='number' min='1' value={newQty} onChange={e => setNewQty(e.target.value)} />
+            <button type="submit" style={{ backgroundColor: '#fecaca' }}>Guardar</button>
           </form>
         ) : (
           <>
